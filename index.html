@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAlpha - Phishing Awareness Training Module</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1, h2 { color: #0056b3; }
+        .header { text-align: center; border-bottom: 2px solid #0056b3; padding-bottom: 15px; margin-bottom: 25px; }
+        .card { background: #eef5fc; border-left: 5px solid #0056b3; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        .quiz-section { background: #fafafa; border: 1px solid #ddd; padding: 20px; border-radius: 6px; margin-top: 30px; }
+        .option { display: block; margin: 10px 0; padding: 10px; background: #fff; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; }
+        .option:hover { background-color: #e2e2e2; }
+        button { background: #28a745; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #218838; }
+        #result { font-weight: bold; margin-top: 15px; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>CodeAlpha Cybersecurity Internship</h1>
+        <h2>Task 2: Phishing Awareness Training Module</h2>
+    </div>
+
+    <div class="card">
+        <h3>🔍 1. What is Phishing?</h3>
+        <p>Phishing is a social engineering attack where attackers impersonate legitimate organizations (banks, Google, IT support) to trick users into revealing sensitive data like passwords, credit card numbers, or personal identity information.</p>
+    </div>
+
+    <div class="warning">
+        <h3>⚠️ 2. Common Red Flags to Watch For</h3>
+        <ul>
+            <li><strong>Spoofed Email Addresses:</strong> Check sender domain (e.g., <code>support@paypa1-security.com</code> instead of <code>paypal.com</code>).</li>
+            <li><strong>Urgent or Threatening Language:</strong> "Account suspended in 24 hours!" or "Immediate action required!"</li>
+            <li><strong>Suspicious Links & Downloads:</strong> Hover over links before clicking to verify destination URL.</li>
+            <li><strong>Generic Greetings:</strong> Using "Dear Customer" instead of your actual name.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>🛡️ 3. Best Practices to Prevent Phishing Attacks</h3>
+        <ol>
+            <li>Enable Multi-Factor Authentication (MFA) on all critical accounts.</li>
+            <li>Never enter passwords on unverified sites or links received via unsolicited emails.</li>
+            <li>Report suspicious emails to your organization's IT / Cybersecurity team immediately.</li>
+        </ol>
+    </div>
+
+    <div class="quiz-section">
+        <h2>📝 Knowledge Check Quiz</h2>
+        <form id="quizForm">
+            <p><strong>Question: You receive an email claiming your bank account is locked, asking you to click a link and log in immediately. What should you do?</strong></p>
+            
+            <label class="option">
+                <input type="radio" name="answer" value="a"> Click the link and log in to verify your account right away.
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="b"> Reply to the email asking if it is authentic.
+            </label>
+            <label class="option">
+                <input type="radio" name="answer" value="c"> Ignore the link, navigate independently to your bank's official website or app, and contact support.
+            </label>
+
+            <br>
+            <button type="button" onclick="checkQuiz()">Submit Answer</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+</div>
+
+<script>
+    function checkQuiz() {
+        const options = document.getElementsByName('answer');
+        let selectedValue = "";
+        for (const option of options) {
+            if (option.checked) {
+                selectedValue = option.value;
+            }
+        }
+
+        const resultDiv = document.getElementById('result');
+        if (selectedValue === "c") {
+            resultDiv.style.color = "green";
+            resultDiv.innerHTML = "✅ Correct! Always navigate directly to official websites or apps rather than clicking links in emails.";
+        } else if (selectedValue === "") {
+            resultDiv.style.color = "orange";
+            resultDiv.innerHTML = "⚠️ Please select an answer before submitting.";
+        } else {
+            resultDiv.style.color = "red";
+            resultDiv.innerHTML = "❌ Incorrect. Never click unsolicited links or reply to suspicious emails. Always visit the official web portal independently.";
+        }
+    }
+</script>
+
+</body>
+</html>
